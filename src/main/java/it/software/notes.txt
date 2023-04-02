@@ -7,36 +7,4 @@ Ogni appuntamento dovrebbe avere un titolo, una descrizione e una data.
  modificare i dettagli degli appuntamenti esistenti.
 
  =========
-   @PostMapping("/modify")
-     private ModelAndView modificaEvento(
-             @RequestParam String titolo,
-             @RequestParam String descrizione,
-             @RequestParam LocalDate date,
-             @RequestParam LocalTime time,
-             Model model) {
-
-
-         Agenda agenda=agendaRepository.findById(id).get();
-         String [] dati=calcoloImc.rispostaImc(riga.getIMC());
-         return dati;
-
- /*        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");*/
-         Agenda agenda=new Agenda();
-         agenda.setTitolo(titolo);
-         agenda.setDescrizione(descrizione);
-         agenda.setDataEvento(date);
-         agenda.setOraEvento(time);
-         agenda.setTimeRegistrato(LocalDateTime.now());
-         agendaRepository.save(agenda);
-
-         ModelAndView mav = new ModelAndView("confirm");
-         mav.addObject("agenda", agenda);
-         return mav;
-     }
-
-     @GetMapping("/imc/{id}")
-     private String[] getImcById(@PathVariable("id") int id) {
-         String[] dati = serviceImc.CalcoloImc(id);
-         return dati;
-     }
+ 
